@@ -1,0 +1,44 @@
+Pointers
+--------
+A pointer is an object that stores a memory address
+A pointer references a location in memory, and obtaining the value stored at that location is known as dereferencing the pointer
+
+--> Address-of operator (&) :
+    - The address of a variable can be obtained by preceding the name of a variable with an ampersand sign (&), known as address-of operator
+    - syntax : &variable
+    - <T> * ptr = &variable;
+
+--> Dereference operator (*) :
+    -  the dereference operator (*) can be used to access the variable they point to directly
+    - syntax : *pointer
+    - <T> variable = *pointer;
+
+Declaring pointers
+------------------
+Due to the ability of a pointer to directly refer to the value that it points to, a pointer has different properties when it points to a char than when it points to an int or a float.
+Once dereferenced, the type needs to be known. And for that, the declaration of a pointer needs to include the data type the pointer is going to point to.
+
+declaration    : <data_type> * pointer;
+initialisation : <data_type> * pointer = &variable;
+
+
+
+
+Pointers and Arrays
+-------------------
+The concept of arrays is related to that of pointers.
+In fact, arrays work very much like pointers to their first elements, and, actually, an array can always be implicitly converted to the pointer of the proper type
+
+
+
+
+Pointer arithmetics
+-------------------
+To conduct arithmetical operations on pointers is a little different than to conduct them on regular integer types. 
+To begin with, only addition and subtraction operations are allowed; the others make no sense in the world of pointers. 
+But both addition and subtraction have a slightly different behavior with pointers, according to the size of the data type to which they point.
+
+*p++   // same as *(p++): increment pointer, and dereference unincremented address
+*++p   // same as *(++p): increment pointer, and dereference incremented address
+++*p   // same as ++(*p): dereference pointer, and increment the value it points to
+(*p)++ // dereference pointer, and post-increment the value it points to 
