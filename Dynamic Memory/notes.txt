@@ -1,0 +1,32 @@
+new and delete operators in C++ for dynamic memory
+--------------------------------------------------
+Dynamically allocated memory is allocated on Heap and non-static and local variables get memory allocated on Stack
+
+
+Stack: 
+The stack memory is a physical space (in RAM) allocated to each thread at run time. It is created when a thread creates.
+It stores the variables, references to objects, and partial results.
+The scope of the elements is limited to their threads
+
+Heap:
+It dynamically handles the memory blocks. It means, we need not to handle the memory manually.
+Memory allocated to heap lives until any one event, either program terminated or memory free does not occur. The elements are globally accessible in the application.
+
+new operator
+------------
+The new operator denotes a request for memory allocation on the Free Store.
+If sufficient memory is available, new operator initializes the memory and returns the address of the newly allocated and initialized memory to the pointer variable. 
+syntax :
+    pointer-variable = new data-type;
+    pointer-variable = new data-type[size];
+
+
+
+
+delete operator 
+---------------
+delete operator is used to to deallocate dynamically allocated memory
+syntax :
+    delete pointer-variable;  
+    delete[] pointer-variable; 
+
