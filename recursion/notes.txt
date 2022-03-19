@@ -1,0 +1,45 @@
+Recursion
+---------
+What is Recursion? 
+The process in which a function calls itself directly or indirectly is called recursion and the corresponding function is called as recursive function. 
+Using recursive algorithm, certain problems can be solved quite easily. 
+Eg : Towers of Hanoi (TOH), Inorder/Preorder/Postorder Tree Traversals, DFS of Graph, etc.
+
+
+What is base condition in recursion? 
+In the recursive program, the solution to the base case is provided and the solution of the bigger problem is expressed in terms of smaller problems
+
+
+Why Stack Overflow error occurs in recursion? 
+If the base case is not reached or not defined, then the stack overflow problem may arise
+
+
+Memory allocation of Recursive method
+Each recursive call creates a new copy of that method in the memory. Once some data is returned by the method, the copy is removed from the memory.
+ Since all the variables and other stuff declared inside function get stored in the stack, therefore a separate stack is maintained at each recursive call.
+ Once the value is returned from the corresponding function, the stack gets destroyed. 
+
+
+What are the disadvantages of recursive programming over iterative programming? 
+It takes a lot of stack space compared to an iterative program.
+It uses more processor time.
+It can be more difficult to debug compared to an equivalent iterative program
+
+
+What are the advantages of recursive programming over iterative programming? 
+Recursion provides a clean and simple way to write code.
+Recursion is required in problems concerning data structures and advanced algorithms, such as Graph and Tree Traversal.
+
+
+
+void function(){
+    ... .. ...
+    function();
+    ... .. ...
+}
+
+int main(){
+    ... .. ...
+    function();
+    ... .. ...
+}
