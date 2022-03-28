@@ -1,0 +1,147 @@
+Basic Operations
+----------------
+setBit(int S, int j)                     ---     { return S | 1 << j; }               
+clearBit(int S, int j)                   ---     { return S & ~(1 << j); }               
+toggleBit(int S, int j)                  ---     { return S ^ 1 << j; }               
+isOn(int S, int j)                       ---     { return (S & 1 << j) != 0; }               
+turnOnLastZero(int S)                    ---     { return S | S + 1; }               
+turnOnLastConsecutiveZeroes(int S)       ---     { return S | S - 1; }               
+turnOffLastBit(int S)                    ---     { return S & S - 1; }               
+turnOffLastConsecutiveBits(int S)        ---     { return S & S + 1; }               
+lowBit(int S)                            ---     { return S & -S; }
+setAll(int N)                            ---     { return (1 << N) - 1; }
+modulo(int S, int N)                     ---     { return (S & N - 1); }		 //S%N, N is a power of 2
+isPowerOfTwo(int S)                      ---     { return (S & S - 1) == 0; }
+
+
+        _ _ _ .... _ 32 bit number
+        ^ {         }
+        |  |       |
+      sign magnitude
+
+BINARY AND ' & '
+----------------
+        0 & 0 --> 0
+        0 & 1 --> 0
+        1 & 1 --> 1
+
+        odd & odd   --> odd
+        odd & even  --> even
+        even & even --> even
+
+
+BINARY OR ' | '
+---------------
+        0 | 0 --> 0
+        0 | 1 --> 1
+        1 | 1 --> 1
+
+        odd | odd   --> odd
+        odd | even  --> odd
+        even | even --> even
+
+
+BINARY XOR ' ^ '
+----------------
+        0 ^ 0 --> 0
+        0 ^ 1 --> 1
+        1 ^ 1 --> 0
+
+        odd ^ odd   --> even
+        odd ^ even  --> odd
+        even ^ even --> even
+
+        ? VERY IMPORTANT: x ^ x == 0
+        ? x ^ y ^ x == y     x ^ x ^ y == y   y ^ x ^ x == y
+
+
+BINARY NOT ' ~ '
+----------------
+
+        ~0 --> 1
+        ~1 --> 0
+
+
+BINARY SHIFT
+------------
+left shift ' << '
+    a << b --> all bits of a is shifted to left (<--) by 'b' number of places, end is filled with zeroes
+    NOTE: a << b == (a * 2^b)
+    
+
+right shift ' >> '
+    a << b --> all bits of a is shifted to right (-->) by 'b' number of places, end bits are discarded
+    NOTE: a >> b == (a / 2^b)
+
+
+NOTES
+*****
+1. Odd/Even using bitwise
+    Odd number has last bit 1,
+    Even number has last bit 0
+    ...1 (odd) & 1  --> 1
+    ...0 (even) & 1 --> 0
+    ...1 (odd) | 0  --> 1
+    ...0 (even) | 0 --> 0
+
+2. Bit Manipultion
+    a. get i-th bit
+        Logic: x & 1 --> x
+        n:   _ _ _ _ _
+               ^
+            i-th bit
+        to make 1 come in ith pos we use 1 << i
+    
+    b. set i-th bit
+        setting means turning to 1
+        Logic: x | 1 --> 1
+        n:   _ _ _ _ _
+               ^
+            i-th bit
+        to set ith pos to 1 we can use ith pos | 1
+
+    c. clear i-th bit
+        clearing means turning to 0
+        Logic: x & 0 --> 0
+        n:   _ _ _ _ _
+               ^
+            i-th bit
+        to clear ith pos to 0 we can use ith pos & 0
+
+    d. updating i-th bit to x
+        Logic: x & 0 --> 0  <> x | 1 --> 1
+        n:   _ _ _ _ _
+               ^
+            i-th bit
+
+    e. clear LAST i bits
+        ? (~0 == 111111111...11111) 32 1's
+        * (~0) == -1 == 1111111.....11111
+        Logic:(
+               ....... _ _ _ _ _ &
+               1 1 1 1 0 0 0 0 0
+               )
+
+    f. clear bits in range [i, j]
+        ? (~0 == 111111111...11111) 32 1's
+        * (~0) == -1 == 1111111.....11111
+        Logic:(
+               ....... _ _ _ _ _ ...... &
+                       ^       ^
+               1 1 1 1 0 0 0 0 0 1 1 1 1
+            )
+
+        * 1111...100000..00111..111    =     11111..110000000000..00 | 0000000...000011111..111
+                                                    first half               second half
+    
+    g. Replacing index i to j with another binary m
+        Clear the index btwn i to j and then insert
+
+
+3. Power of 2
+    if n is power of 2
+        ? n & (n-1) == 0  ALWAYS
+        n & (n-1) != 0 if n is not a power of 2
+        Eg: 16 & 15 == 0 as 16 is power of 2 (2^4)
+            5 & 4 != 0 as 5 is not power of 2
+    

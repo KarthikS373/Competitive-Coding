@@ -49,8 +49,8 @@ int main(){
             return ++d_first;
         }
     */
-    // std::adjacent_difference(v.begin(), v.end(), v.begin());
-    // cout<<"Adjacent difference : "; vec(v);
+    std::adjacent_difference(v.begin(), v.end(), v.begin());
+    cout<<"Adjacent difference : "; vec(v);
 
 
    return 0;
